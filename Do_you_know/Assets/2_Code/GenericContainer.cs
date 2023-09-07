@@ -1,33 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-//Á¦³Ê¸¯ Çü½ÄÀ¸·Î Class »ı¼º
-public class GenericContainer <T>
+//ì œë„ˆë¦­ í˜•ì‹ìœ¼ë¡œ Class ìƒì„±
+public class GenericContainer<T>
 {
-    private T[] items;                                           // Ä¿½ºÅÒ ¹è¿­
-    private int currentIndex = 0;                      // item Áö±İ ¹øÈ£
+    private T[] items;                  //ì»¤ìŠ¤í…€ ë°°ì—´ 
+    private int currentIndex = 0;       //item ì§€ê¸ˆ ë²ˆí˜¸
 
-    public GenericContainer(int capacity)   // »ı¼º µÉ ¶§ ¹è¿­ °³¼ö ¼³Á¤
+    public GenericContainer(int capacity)       //ìƒì„±ë ë•Œ ë°°ì—´ ê°¯ìˆ˜ ì„¤ì •
     {
-        items = new T[capacity];                        // ÇÔ¼ö¸¦ ÅëÇØ¼­ ¹Ş¾Æ¿Í¼­ ¹è¿­ ¼±¾ğ
-
+        items = new T[capacity];            //í•¨ìˆ˜ë¥¼ í†µí•´ì„œ ë°›ì•„ì™€ì„œ ë°°ì—´ ì„ ì–¸
     }
-
-    public void Add(T item) 
-    {
-        // ¹è¿­ÀÌ °¡µæ Â÷¸é ´õ ÀÌ»ó µé¾î°¡Áö ¾ÊÀ½
-        if (currentIndex < items.Length)
+    public void Add(T item)
+    {   //ë°°ì—´ì´ ê°€ë“ì°¨ë©´ ë”ì´ìƒ ë“¤ì–´ê°€ì§€ ì•ŠìŒ
+        if(currentIndex < items.Length) 
         {
-            items[currentIndex] = item;             //  ¹ŞÀº ¾ÆÀÌÅÛÀ» ¹øÈ£¸¦ ÅëÇØ¼­ ¹è¿­¿¡ ³Ö´Â´Ù
-            currentIndex++;                                  // ¾ÆÀÌÅÛ ¹øÈ£¸¦ Áõ°¡½ÃÅ²´Ù
-
+            items[currentIndex] = item;    //ë°›ì€ ì•„ì´í…œì„ ë²ˆí˜¸ë¥¼ í†µí•´ì„œ ë°°ì—´ì— ë„£ëŠ”ë‹¤.
+            currentIndex++;                 //ì•„ì´í…œ ë²ˆí˜¸ë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
         }
     }
-    public T[] GetItems() 
-    {
-                                                                            // ¾ÆÀÌÅÛÀ» ¹è¿­À» return ÇÔ
-        return items;
+
+    public T[] GetItems()
+    {//ì•„ì´íƒ¬ ë°°ì—´ì„ Return í•¨ 
+        return items; 
     }
 }

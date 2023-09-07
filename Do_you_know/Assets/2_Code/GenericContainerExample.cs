@@ -1,50 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GenericContainerExample : MonoBehaviour
 {
-    private GenericContainer<int> intContainer;         // int ÄÁÅ×ÀÌ³Ê
-    private GenericContainer<string> stringContainer; // string ÄÁÅ×ÀÌ³Ê
+    private GenericContainer<int> intContainer;             //ì»¨í…Œì´ë„ˆ ì„ ì–¸ (int)
+    private GenericContainer<string> stringContainer;       //ì»¨í…Œì´ë„ˆ ì„ ì–¸ (string)
 
-    private void Start()
+    void Start()
     {
-        intContainer = new GenericContainer<int>(10);            // 10Ä­ ÃÊ±âÈ­
-        stringContainer = new GenericContainer<string>(5);  // 5Ä­ ÃÊ±âÈ­
+        intContainer = new GenericContainer<int>(10);           //10ì¹¸ìœ¼ë¡œ ì„ ì–¸
+        stringContainer = new GenericContainer<string>(5);      //5ì¹¸ìœ¼ë¡œ ì„ ì–¸
     }
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))    //Å°º¸µå 1 ÀÔ·Â ÇÏ¸é
+        if (Input.GetKeyDown(KeyCode.Alpha1))       //í‚¤ë³´ë“œ 1ì„ ëˆ„ë¥´ë©´
         {
-            intContainer.Add(Random.Range(0, 100)); // 0~100 ·£´ı Ãâ·Â
-            DisplayContainerItems(intContainer);        // µğ¹ö±×¿¡ º¸¿©ÁÜ
+            intContainer.Add(Random.Range(0, 100));     //0 - 100 ëœë¤ ìˆ«ìë¥¼ ì»¨í…Œì´ë„ˆì— ë„£ëŠ”ë‹¤.
+            DisplayContainerItems(intContainer);        //í•¨ìˆ˜ë¥¼ í†µí•´ì„œ Debug.logì— ë³´ì—¬ì¤€ë‹¤.
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))  // Å°º¸µå 2 ÀÔ·Â ÇÏ¸é
+        if (Input.GetKeyDown(KeyCode.Alpha2))       //í‚¤ë³´ë“œ 2ì„ ëˆ„ë¥´ë©´
         {
-            string randomSting = "Item " + Random.Range(0, 100);
-            stringContainer.Add(randomSting);       // ÄÁÅ×ÀÌ³Ê¿¡ ´õÇÑ´Ù.
-            DisplayContainerItems(stringContainer);  // µğ¹ö±×¿¡ º¸¿©ÁÜ
+            string randomString = "Item " + Random.Range(0, 100);       //ì„ì˜ì˜ ë¬¸ìì—´ì„ ë§Œë“¤ì–´ì¤€ë‹¤. 
+            stringContainer.Add(randomString);             //0 - 100 ëœë¤ ë¬¸ìì—´ ì»¨í…Œì´ë„ˆì— ë„£ëŠ”ë‹¤.
+            DisplayContainerItems(stringContainer);        //í•¨ìˆ˜ë¥¼ í†µí•´ì„œ Debug.logì— ë³´ì—¬ì¤€ë‹¤.
         }
     }
-
-
+    //ì»¨í…Œì´ë„ˆì— ë‹´ê¸´ ê°’ë“¤ì„ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
     private void DisplayContainerItems<T>(GenericContainer<T> container)
     {
-        T[] item = container.GetItems();
-        string temp = "";
-
-        for (int i = 0; i < item.Length; i++)
+        T[] item = container.GetItems(); //ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+        string temp = "";                   //Debug.Logì— ë³´ì—¬ì§ˆ ì¹¸ String
+        for(int i = 0; i < item.Length; i++)            //ì»¨í…Œì´ë„ˆì˜ ëª¨ë“  ê°’ì„ forë¬¸ìœ¼ë¡œ ëŒë©´ì„œ
         {
-            if (item[i] != null)                                   // °ªÀÌ NULLÀÌ ¾Æ´Ò°æ¿ì
+            if (item[i] != null)                    //ê°’ì´ NULL ì´ ì•„ë‹ê²½ìš° 
             {
-                temp += item[i].ToString() + " - "; //string Çü½ÄÀ¸·Î º¸¿©ÁØ´Ù
+                temp += item[i].ToString() + "/";       //string í˜•ì‹ìœ¼ë¡œ ë³´ì—¬ì¤€ë‹¤. 
             }
             else
             {
-                temp += "Empty - ";                     //NULLÀÏ °æ¿ì¿¡´Â Empty Ç¥Çö ÇØÁØ´Ù
-            }
+                temp += "Empty / ";                 //NULLì¼ ê²½ìš°ì—ëŠ” Empty í‘œí˜„ í•´ì¤€ë‹¤. 
+            }            
         }
         Debug.Log(temp);
     }
