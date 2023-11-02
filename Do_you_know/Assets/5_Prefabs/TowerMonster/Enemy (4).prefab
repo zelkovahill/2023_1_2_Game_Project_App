@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1149963358093369663}
   - component: {fileID: 6706003358333228497}
   - component: {fileID: 7055184069825103573}
+  - component: {fileID: 7451020269470528392}
   m_Layer: 6
   m_Name: Enemy (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  speedMod: 1
+  timeSinceStart: 0
 --- !u!33 &1149963358093369663
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -121,3 +124,17 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7451020269470528392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638367724179607520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e9a4c9a1fa58448be318956e31747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 10
+  moneyOnDeath: 50

@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
     {
         if ( col.tag == "Enemy" && !hasDamaged )
         {
+
+            col.GetComponent<EnemyHealthController>().TakeDamage((int)damagedAmount);    // 데미지 계산 추가
             hasDamaged = true ;
         }
 
